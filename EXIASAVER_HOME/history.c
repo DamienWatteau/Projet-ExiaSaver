@@ -49,7 +49,7 @@ void history()
     {
 		
 	/* Affichage visuelle de la commande -stats */
-        system("clear");									// Efface le contenu de la console
+        system("clear");								// Efface le contenu de la console
         printf("\t\t ----------------------------\n");
         printf("\t\t- Affichage des statistiques -\n");
         printf("\t\t ----------------------------\n\n");
@@ -66,15 +66,15 @@ void history()
 		/* Compare avec l'entrée saisie */
         if (strcmp(str, "1") == 0)
         {
-			
-            int tableau[3]={0};
+			/* Déclaration des variables */
             int nbStatique = 0;
             int nbDynamique = 0;
             int nbInteractif = 0;
             int c;
-
+			
+			system("clear");					// Efface le contenu de la console
+			
             FILE * pFile;
-
             pFile=fopen ("Log/historique.txt","r");
             if (pFile==NULL) perror ("Error opening file");
             else
@@ -99,15 +99,16 @@ void history()
                 }
             } while (c != EOF);
             fclose (pFile);
-            tableau[0] = nbStatique;
-            tableau[1] = nbDynamique;
-            tableau[2] = nbInteractif;
-            tri_a_bulle(tableau, 3) ;
-
-            char* premierType;
+			
+			/* Déclaration des variables */
+			int tableau[3]={nbStatique, nbDynamique, nbInteractif};
+			char* premierType;
             char* deuxiemeType;
             char* troisiemeType;
-
+			
+            tri_a_bulle(tableau, 3);
+			
+			// Correspond à la première case du tableau
             if (tableau[0] == nbStatique)
             {
                 premierType="statique";
@@ -121,7 +122,7 @@ void history()
                 premierType="interactif";
             }
 
-            //
+            // Correspond à la deuxième case du tableau
             if (tableau[1] == nbStatique)
             {
                 deuxiemeType="statique";
@@ -134,8 +135,8 @@ void history()
             {
                 deuxiemeType="interactif";
             }
-            //
-
+            
+			// Correspond à la troisième case du tableau
             if (tableau[2] == nbStatique)
             {
                 troisiemeType="statique";
@@ -148,12 +149,11 @@ void history()
             {
                 troisiemeType="interactif";
             }
-            system("clear");
-
+            
             printf("\t -----------------------------------------------------\n");
             printf("\t- Statistiques sur le nombre de types d'ecrans lances -\n");
             printf("\t -----------------------------------------------------\n\n\n");
-
+			
             float ntotal = 0.0;
             float pourcentagePremierType = 0.0;
             float pourcentageDeuxiemeType = 0.0;
@@ -184,7 +184,8 @@ void history()
         }
         else if (strcmp(str, "2") == 0)
         {
-            system("clear");
+            system("clear");															// Efface le contenu de la console
+			
             printf("\t\t--------------------------------------------------\n");
             printf("\t\t- Affichage du contenu du fichier 'historique.txt'-\n");
             printf("\t\t---------------------------------------------------\n\n");
