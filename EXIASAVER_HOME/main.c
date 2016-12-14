@@ -16,51 +16,51 @@
 int main(int argc, char *argv[])
 {
     // while (1){
-        pid_t pid = 0;
-        int nbgen = 0;
+    pid_t pid = 0;
+    int nbgen = 0;
 
-        if (argc != 1 && strcmp(argv[1], "-stats") == 0)
-        {
-            history();
-        }
-        else if (argc != 1 && strcmp(argv[1], "-stats") != 0)
-        {
-            printf("no valid arguments\n");
-        }
-        else if( argc == 1)
-        {
-            nbgen = alea(1, 3);
-        }
-
-        history(); //
-        return 0;
+    if (argc != 1 && strcmp(argv[1], "-stats") == 0)
+    {
+        history();
+    }
+    else if (argc != 1 && strcmp(argv[1], "-stats") != 0)
+    {
+        printf("no valid arguments\n");
+    }
+    else if( argc == 1)
+    {
+        nbgen = alea(1, 3);
+    }
+    
+    history(); //
+    return 0;
+    system("clear");
+    
+    if (nbgen == 1)
+    {
+        pid=fork();
         system("clear");
-
-        if (nbgen == 1)
+        if (pid == 0)
         {
-            pid=fork();
-            system("clear");
-                if (pid == 0)
-                {
-                    termSaver1();
-                }
-                else
-                {
-                    //Détection touche entrée
-                }
+            termSaver1();
         }
-        else if (nbgen == 2)
+        else
         {
-            pid=fork();
-            system("clear");
-                if (pid == 0)
-                {
-                    termSaver2();
-                }
-                else
-                {
-                    wait(NULL);
-                }
+                    //Détection touche entrée
+        }
+    }
+    else if (nbgen == 2)
+    {
+        pid=fork();
+        system("clear");
+        if (pid == 0)
+        {
+            termSaver2();
+        }
+        else
+        {
+            wait(NULL);
+        }
         }
         else
         {
@@ -75,6 +75,5 @@ int main(int argc, char *argv[])
                     wait(NULL);
                 }
         }
-        return 0;
     //}
 }
