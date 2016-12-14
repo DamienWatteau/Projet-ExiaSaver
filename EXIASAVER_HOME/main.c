@@ -5,7 +5,7 @@
 #include <unistd.h> // Cette bibliothèque renferme les types et les constantes symbole standard. (Fork)
 #include <string.h> // Cette bibliothèque renferme les routines de traitement de chaine de caractères. (NULL, strcmp)
 
-/*Déclaration des fichiers headers*/
+/* Déclaration des fichiers headers */
 #include "random.h"
 #include "termSaver1.h"
 #include "termSaver2.h"
@@ -15,11 +15,11 @@ int main(int argc, char *argv[])
 {
     while (1){  // Boucle infinie
         
-    /*Déclaration des variables*/    
+    /* Déclaration des variables */    
     pid_t pid = 0;
     int nbgen = 0;
     
-    /* Détection du "-stats"*/
+    /* Détection du "-stats" */
     
     if (argc != 1 && strcmp(argv[1], "-stats") == 0)
     {
