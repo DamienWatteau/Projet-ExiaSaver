@@ -40,11 +40,11 @@ int main(int argc, char *argv[])
     
     if (nbgen == 1)
     {
-        pid=fork();                                     // Il génére et stocke le PID du fils dans la variable "pid"
-        system("clear");                                // Efface le contenu de la console
-        if (pid == 0)                                   // La valeur renvoyé "fork" est de (0) si on est dans le processus fils                                   
+        pid=fork();                                   // Il génére et stocke le PID du fils dans la variable "pid"
+        system("clear");                              // Efface le contenu de la console
+        if (pid == 0)                                 // La valeur renvoyé "fork" est de (0) si on est dans le processus fils                                   
         {                                               
-            termSaver1();                               // Si on est dans le processus fils alors il lance le mode veille statique 
+            termSaver1();                             // Si on est dans le processus fils alors il lance le mode veille statique 
             // Detection de la touche 
         }
         else
@@ -54,11 +54,11 @@ int main(int argc, char *argv[])
     }
     else if (nbgen == 2)
     {
-        pid=fork();                                      // Il génére et stocke le PID du fils dans la variable "pid"
-        system("clear");                                 // Efface le contenu de la console
-        if (pid == 0)                                    // La valeur renvoyé "fork" est de (0) si on est dans le processus fils 
+        pid=fork();                                   // Il génére et stocke le PID du fils dans la variable "pid"
+        system("clear");                              // Efface le contenu de la console
+        if (pid == 0)                                 // La valeur renvoyé "fork" est de (0) si on est dans le processus fils 
         {
-            termSaver2();                                // Si on est dans le processus fils alors il lance le mode veille dynamique 
+            termSaver2();                             // Si on est dans le processus fils alors il lance le mode veille dynamique 
         }
         else
         {
@@ -67,11 +67,11 @@ int main(int argc, char *argv[])
         }
         else
         {
-            pid=fork();                                  // Il génére et stocke le PID du fils dans la variable "pid"
-            system("clear");                             // Efface le contenu de la console
-            if (pid == 0)                        // La valeur renvoyé "fork" est de (0) si on est dans le processus fils 
+            pid=fork();                               // Il génére et stocke le PID du fils dans la variable "pid"
+            system("clear");                          // Efface le contenu de la console
+            if (pid == 0)                             // La valeur renvoyé "fork" est de (0) si on est dans le processus fils 
             {
-                termSaver3();                   // Si on est dans le processus fils alors il lance le mode veille interactif 
+                termSaver3();                    // Si on est dans le processus fils alors il lance le mode veille interactif 
             }
             else
             {
