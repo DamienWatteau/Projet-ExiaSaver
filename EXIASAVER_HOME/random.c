@@ -3,8 +3,8 @@
 
 int alea(int min, int max)                                   // Paramètres de la fonction qui ont été envoyés
 {
-   /*Déclaration des variables*/
-    int nbgen = 0;
+     /*Déclaration des variables*/
+     int nbgen = 0;
 
     srand(time(NULL));                                      // Initialise la fonction srand sur le temps actuel
     nbgen=(rand() % (max - min +1)) + min;                  // Rand retourne un un nombre aléatoire dans la variable "nbgen" comprit entre "min" et "max"
