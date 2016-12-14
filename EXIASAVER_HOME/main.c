@@ -15,6 +15,7 @@ int main(int argc, char *argv[])
 {
     while (1){  // Boucle infinie
         
+    /*Déclaration des variables*/    
     pid_t pid = 0;
     int nbgen = 0;
     
