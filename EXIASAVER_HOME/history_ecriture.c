@@ -4,7 +4,7 @@
 void history_ecriture (int *nbF, int mode)
 {
 
-   /* lire l'heure courante */
+   /* Récupérer l'heure courante */
    time_t now = time (NULL);    // La variable "now" contient la date et l'heure courante
 
    struct tm tm_now = *localtime (&now); // Conversion en heure locale
