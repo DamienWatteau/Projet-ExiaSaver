@@ -1,12 +1,11 @@
-#include <stdio.h> // (gets, printf)
-#include <stdlib.h>
-#include <sys/types.h>    //1
-#include <unistd.h>    //1
-#include <string.h> // (strcmp, )
-#define TAILLE_MAX 1000 // Tableau de taille 1000
+#include <stdio.h> // Cette bibliothèque renferme les routines de traitement d'entrée/sortie fichier.
+#include <stdlib.h> // Cette bibliothèque renferme les routines Standard.
+#include <sys/types.h> // Cette bibliothèque renferme les définitions de temps pour Unix. (pid_t)
+#include <unistd.h> // Cette bibliothèque renferme les types et les constantes symbole standard.
+#include <string.h> // Cette bibliothèque renferme les routines de traitement de chaine de caractères.
 
 /* Déclaration des variables de type define */
-
+#define TAILLE_MAX 1000 // Tableau de taille 1000
 #define TRUE 1; // Attribut la valeur 1 à la variable "TRUE"  
 #define FALSE 0; // Attribut la valeur 0 à la variable "FALSE"  
 
