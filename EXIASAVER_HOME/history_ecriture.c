@@ -19,7 +19,7 @@ void history_ecriture (int *nbF, int mode)
 
     FILE* f = NULL;
 
-    f=fopen("/home/watteau/Bureau/Projectss/history/stats.txt", "a");
+    f=fopen("/home/watteau/Bureau/Projectss/history/stats.txt", "a"); // *
 
     if (mode == 1)
     {
@@ -28,7 +28,6 @@ void history_ecriture (int *nbF, int mode)
             fprintf(f,"%s ;%d; %d.pbm\n", s_now, mode,*nbF);
             fclose(f);
         }
-            // Si 1, Ecrire nom fichier
     }
     else if (mode == 2)
     {
