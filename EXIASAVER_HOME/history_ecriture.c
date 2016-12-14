@@ -1,5 +1,5 @@
-#include <stdio.h> // Cette bibliothèque renferme les routines de traitement d'entrée/sortie fichier. (fopen, fclose)
-#include <time.h> // Cette bibliothèque permet de manipuler l'heure et la date (strftime)
+#include <stdio.h> // Cette bibliothèque renferme les routines de traitement d'entrée/sortie fichier. 
+#include <time.h> // Cette bibliothèque permet de manipuler l'heure et la date 
 
 void history_ecriture (int *nbF, int mode)
 {
