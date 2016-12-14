@@ -4,7 +4,7 @@
 int alea(int min, int max)                                   // Paramètres de la fonction qui ont été envoyés
 {
      /*Déclaration des variables*/
-     int nbgen = 0;
+    int nbgen = 0;
      
      /* Génération d'un nombre aléatoire et la renvoie */
     srand(time(NULL));                                      // Initialise la fonction srand sur le temps actuel
