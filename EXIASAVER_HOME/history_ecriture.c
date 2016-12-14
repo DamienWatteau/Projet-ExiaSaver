@@ -1,9 +1,6 @@
 #include <stdio.h> // Cette bibliothèque renferme les routines de traitement d'entrée/sortie fichier.
 #include <stdlib.h> // Cette bibliothèque renferme les routines Standard.
 #include <time.h> // Cette bibliothèque permet de manipuler l'heure et la date
-#include <sys/types.h> // Cette bibliothèque renferme les définitions de temps pour Unix.
-#include <unistd.h> // Cette bibliothèque renferme les types et les constantes symbole standard.
-#include <string.h> // Cette bibliothèque renferme les routines de traitement de chaine de caractères.
 
 void history_ecriture (int *nbF, int mode)
 {
@@ -20,26 +17,26 @@ void history_ecriture (int *nbF, int mode)
    /* Formater la date et l'heure (Il enregistre la date et l'heure dans la chaine de caractère s_now  */
    strftime (s_now, sizeof s_now, "%d/%m/%Y %H:%M:%S", &tm_now);
 
-        FILE* f = NULL;
+    FILE* f = NULL;
 
-        f=fopen("/home/watteau/Bureau/Projectss/history/stats.txt", "a");
+    f=fopen("/home/watteau/Bureau/Projectss/history/stats.txt", "a");
 
-        if (mode == 1)
+    if (mode == 1)
+    {
+        if (f != NULL)
         {
-            if (f != NULL)
-            {
-                fprintf(f,"%s ;%d; %d.pbm\n", s_now, mode,*nbF);
-                fclose(f);
-            }
-            // Si 1, Ecrire nom fichier
+            fprintf(f,"%s ;%d; %d.pbm\n", s_now, mode,*nbF);
+            fclose(f);
         }
-        else if (mode == 2)
-            {
-                // Si 2, Taille d'affichage
-            }
-            else
-                {
-                // Si 3, position initiale avion sur la console
-                }
+            // Si 1, Ecrire nom fichier
+    }
+    else if (mode == 2)
+    {
+        // Si 2, Taille d'affichage
+    }
+    else
+    {
+        // Si 3, position initiale avion sur la console
+    }
 }
 
