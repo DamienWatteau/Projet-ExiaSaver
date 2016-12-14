@@ -40,14 +40,13 @@ void tri_a_bulle(int *tableau, int const n)
 	}
 }
 
-
 void history() 
 {
     char str[50];
     do
     {
 		
-	/* Affichage visuelle de la commande -stats */
+		/* Affichage visuelle de la commande -stats */
         system("clear");								// Efface le contenu de la console
         printf("\t\t ----------------------------\n");
         printf("\t\t- Affichage des statistiques -\n");
