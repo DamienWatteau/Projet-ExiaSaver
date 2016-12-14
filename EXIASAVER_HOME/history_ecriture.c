@@ -1,9 +1,9 @@
-#include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
-#include <sys/types.h>
-#include <unistd.h>
-#include <string.h>
+#include <stdio.h> // Cette bibliothèque renferme les routines de traitement d'entrée/sortie fichier.
+#include <stdlib.h> // Cette bibliothèque renferme les routines Standard.
+#include <time.h> // Cette bibliothèque permet de manipuler l'heure et la date
+#include <sys/types.h> // Cette bibliothèque renferme les définitions de temps pour Unix.
+#include <unistd.h> // Cette bibliothèque renferme les types et les constantes symbole standard.
+#include <string.h> // Cette bibliothèque renferme les routines de traitement de chaine de caractères.
 
 void history_ecriture (int *nbF, int mode)
 {
