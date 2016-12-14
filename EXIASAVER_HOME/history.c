@@ -34,7 +34,7 @@ void tri_a_bulle(int *tableau, int const n)
  				tableau[j+1] = tableau[j];
  				tableau[j] = tmp;
 				
-				en_desordre = TRUE;		//Le tableau n'est toujours pas trié
+				en_desordre = TRUE; //Le tableau n'est toujours pas trié
  			}
 		}
 	}
@@ -42,6 +42,7 @@ void tri_a_bulle(int *tableau, int const n)
 
 void history() 
 {
+	/* Déclaration de la variable */
     char str[50];
     do
     {
