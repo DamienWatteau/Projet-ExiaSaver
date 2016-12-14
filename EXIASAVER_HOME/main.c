@@ -69,14 +69,14 @@ int main(int argc, char *argv[])
         {
             pid=fork();                                  // Il génére et stocke le PID du fils dans la variable "pid"
             system("clear");                             // Efface le contenu de la console
-                if (pid == 0)                            // La valeur renvoyé "fork" est de (0) si on est dans le processus fils 
-                {
-                    termSaver3();                        // Si on est dans le processus fils alors il lance le mode veille interactif 
-                }
-                else
-                {
-                    wait(NULL);
-                }
+            if (pid == 0)                            // La valeur renvoyé "fork" est de (0) si on est dans le processus fils 
+            {
+                termSaver3();                        // Si on est dans le processus fils alors il lance le mode veille interactif 
+            }
+            else
+            {
+                wait(NULL);
+            }
         }
     //}
 }
