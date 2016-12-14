@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     
     system("clear");
     
-    /* Choix dépendant d'une variable aléatoire (nbgen) permmettant de choisir le type de mode veille*/
+    /* Choix dépendant d'une variable aléatoire (nbgen) permmettant de choisir le type de mode veille */
     
     if (nbgen == 1)
     {
