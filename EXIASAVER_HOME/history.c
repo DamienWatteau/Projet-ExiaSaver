@@ -52,7 +52,6 @@ void history()
         printf("\t\t ----------------------------\n");
         printf("\t\t- Affichage des statistiques -\n");
         printf("\t\t ----------------------------\n\n");
-
         printf("1 - Statistiques sur le nombre de types d'ecrans lances\n");
         printf("2 - Affichage du contenu du fichier 'historique.txt'\n");
         printf("3 - Retour\n\n");
@@ -164,7 +163,6 @@ void history()
             pourcentageDeuxiemeType = (tableau[1] / ntotal) *100.0;
             pourcentagePremierType = (tableau[0] / ntotal) *100.0;
             printf("> - Le mode le plus lance est %s avec %.0f %% ", troisiemeType, pourcentageTroisiemeType); 
-
             printf("\n-------------------------------------------------\n");
             printf("- %s avec %.0f %% .\n", deuxiemeType, pourcentageDeuxiemeType);
             printf("- %s avec %.0f %% .\n", premierType, pourcentagePremierType);
