@@ -17,7 +17,7 @@ void history_ecriture (int *nbF, int mode)
    /* Ecrire la date, l'heure, le mode veille dans le fichier "stats.txt */
    FILE* f = NULL;
    
-   f=fopen("/home/watteau/Bureau/Projectss/history/stats.txt", "a"); // *
+   f=fopen("Log/historique.txt", "a");
    
    if (mode == 1)
    {
