@@ -6,7 +6,6 @@
 #include <string.h> // Cette bibliothèque renferme les routines de traitement de chaine de caractères. (NULL, strcmp)
 
 /*Déclaration des fichiers headers*/
-
 #include "random.h"
 #include "termSaver1.h"
 #include "termSaver2.h"
