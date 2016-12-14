@@ -5,9 +5,12 @@
 #include <string.h> // (strcmp, )
 #define TAILLE_MAX 1000 // Tableau de taille 1000
 
-#define TRUE 1;
-#define FALSE 0;
+/* Déclaration des variables de type define */
 
+#define TRUE 1; // Attribut la valeur 1 à la variable "TRUE"  
+#define FALSE 0; // Attribut la valeur 0 à la variable "FALSE"  
+
+/* Algorithme de tri simple à bulle  */
 void tri_a_bulle(int *tableau, int const n)
 {
  	int j   = 0; /* Variable de boucle */
@@ -40,14 +43,14 @@ void tri_a_bulle(int *tableau, int const n)
 }
 
 
-
-
-void history()    //2
+void history() 
 {
     char str[50];
     do
     {
-        system("clear");
+		
+	/* Affichage visuelle de la commande -stats */
+        system("clear");									// Efface le contenu de la console
         printf("\t\t ----------------------------\n");
         printf("\t\t- Affichage des statistiques -\n");
         printf("\t\t ----------------------------\n\n");
@@ -57,19 +60,18 @@ void history()    //2
         printf("3 - Retour\n\n");
         printf("-----------------\n");
         printf("Votre choix : ");
-        gets(str);
+        gets(str);									//lit une ligne depuis stdin et la stocke dans "str"
         printf("-----------------\n");
-    } while(strcmp (str,"1") != 0 && strcmp (str,"2") != 0 && strcmp (str,"3") != 0);   // NON-ET
-                                                                                        // while ( (strcmp(str, "1") != 0) || (strcmp(str, "2") != 0));
-                                                                                        //while(strcmp (str,"1") != 0 && strcmp (str,"2") != 0 && strcmp (str,"3") != 0);
-
+    } while(strcmp (str,"1") != 0 && strcmp (str,"2") != 0 && strcmp (str,"3") != 0);   // La boucle attend que l'utilisateur entre "1", "2", "3" dans le terminal
+																						//cf. Porte logique NON-ET
+		/* Compare avec l'entrée saisie */
         if (strcmp(str, "1") == 0)
         {
+			
             int tableau[3]={0};
-            // n++;n1++;n2++
-            int n = 0;
-            int n1 = 0;
-            int n2 = 0;
+            int nbStatique = 0;
+            int nbDynamique = 0;
+            int nbInteractif = 0;
             int c;
 
             FILE * pFile;
@@ -84,54 +86,48 @@ void history()    //2
                  c = fgetc (pFile);
                     if (c == '1')
                     {
-                        n++;
+                        nbStatique++;
                     }
                     else if (c == '2')
                     {
-                        n1++; //
+                        nbDynamique++; //
                     }
                     if (c == '3')
                     {
-                        n2++;
+                        nbInteractif++;
                     }
 
                 }
             } while (c != EOF);
             fclose (pFile);
-            tableau[0] = n;
-            tableau[1] = n1;
-            tableau[2] = n2;
+            tableau[0] = nbStatique;
+            tableau[1] = nbDynamique;
+            tableau[2] = nbInteractif;
             tri_a_bulle(tableau, 3) ;
-
-            //Mode le moins exécuté
-            //char premierType[20];
 
             char* premierType;
             char* deuxiemeType;
             char* troisiemeType;
 
-            if (tableau[0] == n)
+            if (tableau[0] == nbStatique)
             {
                 premierType="statique";
-                //premierType[0]='s';premierType[1]='t';premierType[2]='a';premierType[3]='t';premierType[4]='i';premierType[5]='q';premierType[6]='u';premierType[7]='e';premierType[8]='\0';
-
             }
-            else if (tableau[0] == n1)
+            else if (tableau[0] == nbDynamique)
             {
                 premierType="dynamique";
             }
             else
             {
                 premierType="interactif";
-
             }
 
             //
-            if (tableau[1] == n)
+            if (tableau[1] == nbStatique)
             {
                 deuxiemeType="statique";
             }
-            else if (tableau[1] == n1)
+            else if (tableau[1] == nbDynamique)
             {
                 deuxiemeType="dynamique";
             }
@@ -141,11 +137,11 @@ void history()    //2
             }
             //
 
-            if (tableau[2] == n)
+            if (tableau[2] == nbStatique)
             {
                 troisiemeType="statique";
             }
-            else if (tableau[2] == n1)
+            else if (tableau[2] == nbDynamique)
             {
                 troisiemeType="dynamique";
             }
@@ -159,56 +155,22 @@ void history()    //2
             printf("\t- Statistiques sur le nombre de types d'ecrans lances -\n");
             printf("\t -----------------------------------------------------\n\n\n");
 
-                // ntotal = n+n1+n2
             float ntotal = 0.0;
             float pourcentagePremierType = 0.0;
             float pourcentageDeuxiemeType = 0.0;
             float pourcentageTroisiemeType = 0.0;
 
-                // Faire un .h avec une structure
-            ntotal = n + n1 +n2;
+            ntotal = nbStatique + nbDynamique + nbInteractif;
 
             pourcentageTroisiemeType = (tableau[2] / ntotal) *100.0;
             pourcentageDeuxiemeType = (tableau[1] / ntotal) *100.0;
             pourcentagePremierType = (tableau[0] / ntotal) *100.0;
-            printf("> - Le mode le plus lance est %s avec %.0f %% ", troisiemeType, pourcentageTroisiemeType); //premierP
+            printf("> - Le mode le plus lance est %s avec %.0f %% ", troisiemeType, pourcentageTroisiemeType); 
 
             printf("\n-------------------------------------------------\n");
             printf("- %s avec %.0f %% .\n", deuxiemeType, pourcentageDeuxiemeType);
             printf("- %s avec %.0f %% .\n", premierType, pourcentagePremierType);
-            //printf("- %s avec %d %% .\n");
-            //printf("- %s avec %d %% .\n");
-
-            /*char premierType[20]="statique";
-            char deuxiemeType[20]="statique";
-            char troisiemeType[20]="statique";
-
-            int premierP = 0;
-            int deuxiemeP = 0;
-            int troisiemeP = 0;
-
-
-            system("clear");
-
-            printf("\t -----------------------------------------------------\n");
-            printf("\t- Statistiques sur le nombre de types d'ecrans lances -\n");
-            printf("\t -----------------------------------------------------\n\n\n");
-
-                // ntotal = n+n1+n2
-            float n = 2.0;
-            float ntotal = 10.0;
-            float lol = 0.0;
-
-                // Faire un .h avec une structure
-
-            lol = (n / ntotal)*100.0;
-            printf("> - Le mode le plus lance est %s avec %f %% .", premierType, lol); //premierP
-
-            printf("\n-------------------------------------------------\n");
-            printf("- %s avec %d %% .\n", deuxiemeType, deuxiemeP);
-            printf("- %s avec %d %% .\n", troisiemeType, troisiemeP);*/
-
-            //
+		
             do
             {
                 printf("\nAppuyer sur (1) pour retourner en arrière : ");
