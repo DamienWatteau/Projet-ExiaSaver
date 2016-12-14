@@ -10,10 +10,6 @@
 #include "termSaver1.h"
 #include "termSaver2.h"
 #include "termSaver3.h"
-#include "history.h" //
-
-//#define TAILLE_MAX 1000
-// #include "history_ecriture.h"
 
 int main(int argc, char *argv[])
 {
