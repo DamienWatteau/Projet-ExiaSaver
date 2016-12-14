@@ -1,6 +1,6 @@
 #include <stdio.h> // Cette bibliothèque renferme les routines de traitement d'entrée/sortie fichier.
 #include <stdlib.h> // Cette bibliothèque renferme les routines Standard.
-#include <sys/types.h> // Cette bibliothèque renferme les définitions de temps pour Unix. (pid_t)
+#include <sys/types.h> // Cette bibliothèque renferme les définitions de temps pour Unix.
 #include <unistd.h> // Cette bibliothèque renferme les types et les constantes symbole standard.
 #include <string.h> // Cette bibliothèque renferme les routines de traitement de chaine de caractères.
 
@@ -33,9 +33,8 @@ void tri_a_bulle(int *tableau, int const n)
  				tmp = tableau[j+1];
  				tableau[j+1] = tableau[j];
  				tableau[j] = tmp;
-
- 				/* Le tableau n'est toujours pas trié */
-				en_desordre = TRUE;
+				
+				en_desordre = TRUE;		//Le tableau n'est toujours pas trié
  			}
 		}
 	}
