@@ -3,7 +3,7 @@
 
 ###Le lanceur :
 
-> "**./exiasaver**" : Cette commande sera à rentrer dans un terminal (raccourcis clavier ctrl+alt+t) pour pouvoir lancer l'application en arrière plan. 
+> "**./exiasaver**" : Cette commande (raccourcis clavier ctrl+alt+t) permet de lancer l'exécutable lanceur. 
 > 
 >Le mode veille ce lance automatiquement au bout de 15 secondes et fait apparaître un des trois termSaver disponible.
 >
