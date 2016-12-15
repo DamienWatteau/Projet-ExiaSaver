@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentation technique sur l'architecture de l'exiaSaver</title>
+<link rel="stylesheet" href="https://stackedit.io/res-min/themes/base.css" />
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body><div class="container"><h1 id="documentation-technique-sur-larchitecture-de-lexiasaver">Documentation technique sur l’architecture de l’exiaSaver</h1>
+
+
+
+<h3 id="le-lanceur">Le lanceur :</h3>
+
+<blockquote>
+  <p>“<strong>./exiasaver</strong>” : Cette commande sera à rentrer dans un terminal (raccourcis clavier ctrl+alt+t) pour pouvoir lancer l’application en arrière plan. </p>
+  
+  <p>Le mode veille ce lance automatiquement au bout de 15 secondes et fait apparaître un des trois termSaver disponible.</p>
+  
+  <p>Pour quitter le mode statique, vous aurez à appuyer sur une touche du clavier. Pour quitter le mode dynamique vous aurez à kill le processus avec la commande ctrl+c. Enfin, pour quitter le mode interactif, appuyez sur la lettre q.</p>
+</blockquote>
+
+
+
+<h3 id="les-bibliothèques">Les bibliothèques :</h3>
+
+<blockquote>
+  <p>Nom de la bibliothèque | définitions qu’elle contient et qui sont utilisées dans le programme</p>
+  
+  <ul>
+  <li><p><strong>stdlib.h</strong> | rand ; system() ; malloc() ; free() ; atoi() ; </p>
+  
+  <blockquote>
+    <p>Cette bibliothèque renferme les routines Standard.</p>
+  </blockquote></li>
+  <li><p><strong>stdio.h</strong> | fopen() ; printf() ; fgets() ; fgetc() ; rewind() ;</p>
+  
+  <blockquote>
+    <p>Cette bibliothèque renferme les routines de traitement d’entrée/sortie fichier. </p>
+  </blockquote></li>
+  <li><p><strong>sys/types.h</strong> | pid_t ; time_t  ; wait() ;</p>
+  
+  <blockquote>
+    <p>Cette bibliothèque renferme les définitions de temps pour Unix.</p>
+  </blockquote></li>
+  <li><p><strong>sys/wait.h</strong> | wait() ;</p>
+  
+  <blockquote>
+    <p>Cette bibliothèque renferme les définitions d’attente.</p>
+  </blockquote></li>
+  <li><p><strong>unistd.h</strong> | fork () ;</p>
+  
+  <blockquote>
+    <p>Cette bibliothèque renferme les types et les constantes symbole standard.</p>
+  </blockquote></li>
+  <li><p><strong>string.h</strong> | strcmp () ; strtok () ; strcpy() ;</p>
+  
+  <blockquote>
+    <p>Cette bibliothèque renferme les routines de traitement de chaîne de caractères.</p>
+  </blockquote></li>
+  </ul>
+</blockquote>
+
+
+
+<h3 id="définitions">Définitions :</h3>
+
+<blockquote>
+  <p><strong>rand</strong> : (int) cette fonction retourne un nombre pseudo aléatoire entier</p>
+  
+  <p><strong>system()</strong> : int system(const char *commande) –&gt; le paramètre commande permet d’indiquer la commande à faire exécuter par le système d’exploitation. Cette fonction permet de lancée un commande dans le système d’exploitation.</p>
+  
+  <p><strong>malloc()</strong> : Cette fonction effectue une allocation de mémoire dynamique</p>
+  
+  <p><strong>free()</strong> : Cette procédure permet de libérer un bloc de mémoire.</p>
+  
+  <p><strong>fopen()</strong> : Cette fonction effectue l’ouverture d’un fichier.</p>
+  
+  <p><strong>printf()</strong> : Cette fonction effectue l’écriture de texte sur la console.</p>
+  
+  <p><strong>fgets()</strong> : Cette fonction effectue la lecture d’une chaîne de caractères dans un fichier.</p>
+  
+  <p><strong>fgetc()</strong> : Cette fonction effectue la lecture d’un caractère dans un fichier.</p>
+  
+  <p><strong>fork()</strong> : Appel système standard ; cette fonction permet à un processus de donner naissance à un nouveau processus qui est sa copie conforme.</p>
+  
+  <p><strong>strcmp()</strong> : Cette fonction effectue la comparaison de deux chaines de caractères.</p>
+  
+  <p><strong>strtok()</strong> : Cette fonction permet de couper la chaine de caractères «str1» en token en les séparant par les caractères de la chaine de caractères «str2».</p>
+  
+  <p><strong>strcpy()</strong> : Cette fonction effectue la copie d’une chaine de caractères dans une autre chaine de caractères.</p>
+  
+  <p><strong>wait()</strong> : L’appel système wait() suspend l’exécution du processus appelant jusqu’à ce que l’un de ses fils se termine.</p>
+  
+  <p><strong>pid_t</strong> : Lors de l’utilisation de la fonction fork, la valeur retourné est de type pid_t (c’est un int)</p>
+  
+  <p><strong>rewind()</strong> : Cette fonction permet de replacer le curseur au début du fichier. (Ici, permet de ce remettre à la colonne 0 de la ligne 0, au tout début du tableau qui contient l’image)  </p>
+  
+  <p><strong>atoi()</strong> : Convertie une chaîne de caractère en une valeur entière (char en int)</p>
+</blockquote>
+
+
+
+<h3 id="executables">Executables :</h3>
+
+<blockquote>
+  <p><strong>Ce programme est composé de 4 exécutables</strong> : </p>
+  
+  <p>Le premier exécutable est le lanceur. Il servira à lancer les autres exécutables qui sont termSaver1, termSaver2 et termSaver 3.</p>
+  
+  <p><strong>termSaver1</strong> : Cet exécutable est lancé si le lanceur à généré le nombre aléatoire 1. Il exécutera ensuite les différente fonction comprise à l’intérieur de celui-ci, comme la génération de nombre aléatoire, l’écriture dans l’historique (heure, date, numéro de l’image choisie), la récupération d’un contenu de fichier, la conversion en caractère ASCII des 0 et des 1,  le centrage et l’affichage d’une image</p>
+  
+  <p><strong>termSaver2</strong> : Cet exécutable est lancé si le lanceur à généré le nombre aléatoire 2. Les fonctions utilisés dans ce termSaver sont la lecture de l’heure, la récupération des fichiers image en fonction de l’heure, la lecture de fichier un par un, l’affichage des fichiers images, la mise à jour des images affiché correspondant à l’heure.</p>
+  
+  <p><strong>termSaver3</strong> : En cours de développement</p>
+</blockquote></div></body>
+</html>
