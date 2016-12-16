@@ -10,6 +10,7 @@
 #include "random.h"
 #include "history.h"
 #include "history_ecriture.h"
+#include "statique.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,6 +19,7 @@ int main(int argc, char *argv[])
         pid_t pid = 0;
         int nbgen = 0;
         int nbgen2 = 0;
+        char cheminImage[100];
 	
 		/* Détection du "-stats" */
         if (argc != 1 && strcmp(argv[1], "-stats") == 0)
@@ -39,18 +41,18 @@ int main(int argc, char *argv[])
         {
             
             system("clear");
-            nbgen2 = alea(1, 8);
+            nbgen2 = alea(1, 7);
             history_ecriture(nbgen2, nbgen);
-            
+            sprintf(cheminImage, "/home/maxime/Bureau/Final/ExiaSaver/EXIASAVER1_PBM/image%i.pbm", nbgen2);
+            readOpti(cheminImage);
             pid=fork();
             if (pid == 0)
             {
-            	//execl("/home/maxime/Bureau/Final/ExiaSaver/touche","touche",NULL);
-            	//execl("home/maxime/Bureau/Final/ExiaSaver/statique", "statique", NULL);
+            	system("./touche");
             }
             else
             {
-            	execl("home/maxime/Bureau/Final/ExiaSaver/statique", "statique", NULL);
+            	
                 wait(NULL);    
             }
         }

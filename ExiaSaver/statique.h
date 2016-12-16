@@ -1,0 +1,1 @@
+int readOpti(char nomImage[]);

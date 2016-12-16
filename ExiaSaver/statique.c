@@ -5,7 +5,7 @@
 
 int readOpti(char nomImage[])
 {
-	FILE* image = NULL;   //Variable pour ouvrir notre image
+	FILE* image = NULL;
 	char *tableauImage; 
 	int i =0, j = 0, linesTab = 0, columnsTab = 0;
 	char tank[10], columns[5], lines[5];
@@ -26,22 +26,22 @@ int readOpti(char nomImage[])
 	
 	image = fopen(nomImage, "r"); //ouvrir un fichier
 	
-	if (image != NULL)  // Si l'image s'est ouverte
+	if (image != NULL) 
 	{	
-		/*recupérer la taille de l'image*/
-		
-		while(fgetc(image) != EOF){ // lit caractère par caratère l'image jusqu'à la fin du fichier
+		//recupérer la taille de l'image
+		while(fgetc(image) != EOF){
 			nbcarac++;
 		}
 		
-		tableauImage = malloc(nbcarac * sizeof(char)); // Alloue la taille de nbcarac dans tableauImage
+		//printf("%d",nbcarac);
 		
-		rewind(image); // place le curseur au debut du fichier
+		tableauImage = malloc(nbcarac * sizeof(char));
 		
-		/* Lit ligne par ligne l'image dans le tableau*/
-		while (fgets(tableauImage, nbcarac, image) != NULL) 
+		rewind(image);
+		
+		while (fgets(tableauImage, nbcarac, image) != NULL)
 		{
-			if(i==1) 
+			if(i==1)
 			{
 				fgets (tank, 10, image);
 				token = strtok(tank, s);
@@ -63,58 +63,57 @@ int readOpti(char nomImage[])
 			i++;
 		}
 		
-		rewind(image); // "    "
+		rewind(image);
 		
-		linesTab = atoi(lines); // convertie une chaîne de caractère en une valeure entière (char en int)
-		columnsTab = atoi(columns); // " 								"
-		
-		tab = malloc(columnsTab * sizeof(*tab)); //allocation d'un tableau de pointeur tab de 'columnsTab'
+		linesTab = atoi(lines);
+		columnsTab = atoi(columns);
 		
 		
-		for(x = 0; x<columnsTab; x++){ // Création des colonnes du tableau bidimentionnel 
-			tab[x] = malloc(linesTab * sizeof(**tab)); // Alloue le taille necéssaire des lignes
+		//printf("%d %d \n",  linesTab, columnsTab);
+		
+		tab = malloc(columnsTab * sizeof(*tab)); //allocation d'un tableau de pointeur de 'taille1'
+		
+		
+		for(x = 0; x<columnsTab; x++){
+			tab[x] = malloc(linesTab * sizeof(**tab));
 		}
-		/* On ecrit 1 dans tous le tableau (initialisation) */
-		for(x=0 ; x<columnsTab ; x++) 
+		
+		for(x=0 ; x<columnsTab ; x++)
 		{
 			for(y=0 ; y<linesTab ; y++)
 			{
 				tab[x][y] = '1';
+				//printf("%c " , tab[x][y]);
 			}
+			//printf("\n");
 		}
+		
 		do
 		{		
-			carac = fgetc(image); // Lit caractère par caractère l'image et stocke le premier caractère dans carac
-			
-			/* saute les 3 premières lignes de nos .pbm  */
+			carac = fgetc(image);
+					
 			if ( countLine < 3 &&  carac == 10){
 				countLine++;
 				
 			}
-			/* Ecrit les caractères dans le tableau */
 			else if (countLine >= 3 && (carac == 48 || carac == 49)){
 				tab[linesWhile][columnsWhile] = carac;
 				columnsWhile++;
 				
 			}
-			/* Permet de revenir a la ligne suivante à la colonne 0 */
+
 			else if (countLine >= 3 && carac == 10){
 				linesWhile++;
 				columnsWhile=0;
 			}
-		}while(carac != EOF); // tant qu'on est pas à la fin du fichier
+		}while(carac != EOF);
 		
-		// Max
 		
 		countline = 0;
 		countcarac =0;
 		
-		/* Calculs pour le centrage   */
-		
 		length = (80 - linesTab)/2 ;
 		width = (24 - columnsTab)/2;
-		
-		// délimitation de l'image 
 		
 		int lengthmax = length + linesTab;
 		int widthmax = width + columnsTab;
@@ -127,26 +126,26 @@ int readOpti(char nomImage[])
 		for(l = 0; l < 24; l++){
 			for(c = 0; c < 80; c++){
 			
-				if(c > length && l > width && l <= widthmax && c <= lengthmax) // Met en condition toute la taille de l'image (longueur/largeur max)
+				if(c > length && l > width && l <= widthmax && c <= lengthmax)
 				{
-					if(oldl == 0) // si toujours dans la même ligne
+					if(oldl == 0)
 					{
-						oldl = l; //garder le l
+						oldl = l;
 					}
-					if(oldl != l) //si on a changé de ligne depuis le dernier passage
+					if(oldl != l)
 					{
-						oldl = l; //on garde le nouveau l
-						a++; //on dit à l'image de changer de ligne aussi
+						oldl = l;
+						a++;
 					}
-					ecran[l][c] = tab[a][b]; //ecrire l'image dans le grand tableau
-					b++; //on incrémente b pour changer de colonne
+					ecran[l][c] = tab[a][b];
+					b++;
 					
 					
 				}
-				else //si on est pas dans l'espace d'écriture de l'image
+				else
 				{
-					b=0; //on remet les colonnes de l'image à 0
-					ecran[l][c] = 48; //et on écrit 0 dans le grand tableau
+					b=0;
+					ecran[l][c] = 48;
 				}
 				
 			}
@@ -158,12 +157,12 @@ int readOpti(char nomImage[])
 		
 		for(l = 0; l < 24; l++){
 			for(c = 0; c < 80; c++){
-				// si il rencontre des 0, écrit des espaces
+				
 				if(ecran[l][c] == 48){
 					printf(" ");
 				}
-				else if (ecran[l][c] == 49){ // si il rencontre des 1, écrit un caractère spécial
-					printf("\u2588"); // caractère unicode u+2588
+				else if (ecran[l][c] == 49){
+					printf("\u2588");
 				}
 			}
 		}
@@ -178,10 +177,10 @@ int readOpti(char nomImage[])
 	return 0;
 }
 
-int main(int argc, char *argv)
+/*int main(int argc, char *argv)
 {
 	char nomImage[50];
 	strcpy(nomImage, "/home/maxime/Bureau/Final/bitmap/nyancat.pbm");
 	readOpti(nomImage);
 	return 0;
-}
+}*/
