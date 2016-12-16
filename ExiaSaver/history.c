@@ -89,7 +89,7 @@ void history()
                     {
                         nbDynamique++; //
                     }
-                    if (c == '3')
+                    else if (c == '3')
                     {
                         nbInteractif++;
                     }
