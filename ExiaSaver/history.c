@@ -199,7 +199,7 @@ void history()
                     }
                     fclose(fichier);
                 }
-            //
+		
                 do
                 {
                     printf("\nAppuyer sur (1) pour retourner en arrière : ");
